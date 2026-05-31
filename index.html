@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agnes Keith – Land Below the Wind</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1209;
+    --parchment: #f5ede0;
+    --amber: #b5722a;
+    --moss: #4a6741;
+    --gold: #c9922b;
+    --mist: #d9cfc3;
+    --deep: #2c1f10;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #2e2016;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 16px;
+    font-family: 'Crimson Pro', Georgia, serif;
+  }
+
+  .card {
+    background: var(--parchment);
+    max-width: 680px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  /* Texture overlay */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.6;
+  }
+
+  /* Header banner */
+  .header {
+    background: var(--deep);
+    padding: 36px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amber), var(--gold), var(--amber));
+  }
+
+  /* Botanical silhouette */
+  .botanical {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 180px;
+    opacity: 0.12;
+  }
+
+  .page-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .title-block h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--parchment);
+    line-height: 1.1;
+  }
+
+  .title-block h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .author-line {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    color: var(--mist);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,146,43,0.4);
+    padding: 4px 10px;
+  }
+
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 40px 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  }
+
+  .divider-ornament {
+    font-size: 18px;
+    color: var(--amber);
+  }
+
+  /* Body content */
+  .body {
+    padding: 24px 40px 40px;
+  }
+
+  .opening-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--deep);
+    line-height: 1.55;
+    border-left: 3px solid var(--amber);
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  .opening-quote span {
+    display: block;
+    font-size: 13px;
+    font-style: normal;
+    font-family: 'Crimson Pro', serif;
+    color: var(--amber);
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mist);
+  }
+
+  .section p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  .section p + p {
+    margin-top: 12px;
+  }
+
+  .highlight-box {
+    background: var(--deep);
+    color: var(--parchment);
+    padding: 20px 24px;
+    margin: 28px 0;
+    position: relative;
+  }
+
+  .highlight-box::before {
+    content: '❧';
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    font-size: 22px;
+    color: var(--gold);
+    background: var(--deep);
+    padding: 0 8px;
+  }
+
+  .highlight-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--parchment);
+  }
+
+  .highlight-box .attribution {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-top: 10px;
+    font-style: normal;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mist);
+  }
+
+  .tag {
+    font-size: 12px;
+    color: var(--moss);
+    font-family: 'Crimson Pro', serif;
+    letter-spacing: 0.5px;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--deep);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-note {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    color: var(--mist);
+    font-style: italic;
+  }
+
+  /* Decorative corner */
+  .corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+  .corner-tl { top: 80px; left: 0; border-top: 2px solid var(--amber); border-left: 2px solid var(--amber); }
+  .corner-br { bottom: 50px; right: 0; border-bottom: 2px solid var(--amber); border-right: 2px solid var(--amber); }
+
+  @media (max-width: 500px) {
+    .header { padding: 28px 24px 22px; }
+    .title-block h1 { font-size: 32px; }
+    .body { padding: 20px 24px 32px; }
+    .divider { padding: 18px 24px 0; }
+    .footer { padding: 16px 24px; flex-direction: column; gap: 6px; text-align: center; }
+    .opening-quote { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- SVG botanical silhouette in header -->
+  <div class="header">
+    <svg class="botanical" viewBox="0 0 200 220" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="60" rx="18" ry="50" transform="rotate(-20 100 60)"/>
+      <ellipse cx="80" cy="90" rx="14" ry="42" transform="rotate(-50 80 90)"/>
+      <ellipse cx="120" cy="80" rx="14" ry="42" transform="rotate(10 120 80)"/>
+      <ellipse cx="60" cy="130" rx="10" ry="35" transform="rotate(-70 60 130)"/>
+      <ellipse cx="140" cy="110" rx="10" ry="35" transform="rotate(40 140 110)"/>
+      <line x1="100" y1="200" x2="100" y2="10" stroke="white" stroke-width="3"/>
+      <line x1="100" y1="160" x2="60" y2="130" stroke="white" stroke-width="2"/>
+      <line x1="100" y1="140" x2="140" y2="110" stroke="white" stroke-width="2"/>
+      <ellipse cx="100" cy="200" rx="30" ry="8" transform=""/>
+    </svg>
+
+    <div class="page-label">📚 Literary Appreciation of Sabah</div>
+    <div class="title-block">
+      <h1><em>Land Below the Wind</em></h1>
+      <div class="author-line">Agnes Newton Keith &nbsp;·&nbsp; 1939</div>
+    </div>
+    <div class="meta-row">
+      <span class="badge">Memoir</span>
+      <span class="badge">Colonial Literature</span>
+      <span class="badge">North Borneo</span>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-ornament">✦</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="body">
+
+    <div class="opening-quote">
+      "Some people accumulate wisdom; Agnes Keith accumulated wonder — and gave it back to the world as literature."
+      <span>— A reader's note on the enduring power of this memoir</span>
+    </div>
+
+    <div class="section">
+      <div class="section-title">The Book</div>
+      <p>Published in 1939, <em>Land Below the Wind</em> is the memoir of Agnes Newton Keith, an American journalist who arrived in Sandakan in 1934 as the wife of Harry Keith, the British Conservator of Forests for the North Borneo Chartered Company. What began as a dutiful accompaniment to a colonial posting became something far rarer: a work of literature that would shape how an entire land sees and names itself.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Voice &amp; Craft</div>
+      <p>What distinguishes Agnes Keith among colonial-era writers is the remarkable texture of her prose voice — warm, self-deprecating, and alive with curiosity. She writes not as conqueror or surveyor, but as a wide-eyed newcomer perpetually humbled by the jungle, the sea, and the people around her. Her wit is dry without being cold, her sentiment genuine without becoming sentimental.</p>
+      <p>The book blends genres with unusual fluency — part travelogue, part anthropological sketch, part domestic comedy, part nature writing. Her descriptions of Sabah's rainforests carry sensory precision that few travel writers of any era have matched: the smell of rain on red laterite soil, the chaos of the Sandakan market at dawn, the terrifying intimacy of the equatorial night.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p>Agnes Keith did not merely observe Sabah — she listened to it. In her pages, Dusun elders, Bajau fishermen, and Chinese traders are rendered as full human beings, not ethnographic curiosities. That moral attention was radical for 1939.</p>
+      <div class="attribution">— On her representation of the peoples of North Borneo</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Ambivalence &amp; Colonial Complexity</div>
+      <p>Academic scholars have noted that Keith occupies a fascinatingly ambivalent position — she is embedded within the colonial apparatus as an officer's wife, yet she does not simply reproduce its assumptions. In the story of Abanawas, a native Bornean narrated at a deliberate remove, Keith uses what literary scholars call a <em>narratorial shift</em> — distancing herself from the tale's colonial injustice even as she recounts it. This is the literary sleight-of-hand of a trained journalist who understood that indirection is sometimes the most honest path.</p>
+      <p>Her American identity further complicates the picture. She is neither fully inside the British imperial order nor fully outside it — a position that gives her an oblique, sometimes critical angle on Empire that a British writer might not have dared.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">The Gift of a Name</div>
+      <p>"Land Below the Wind" was not a phrase Agnes Keith invented — it was borrowed from the old vocabulary of seafarers who used it to describe all territories lying south of the typhoon belt, sheltered from the great storms that ravaged lands to the north. But it was Agnes Keith who gave the phrase literary permanence, binding it irrevocably to Sabah. Today, Sabahans carry that name as identity, as tourism slogan, as self-understanding. A writer gave a land its name — and that name has endured longer than the empire that employed her husband.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Legacy &amp; Influence on Sabah</div>
+      <p>For Sabah, <em>Land Below the Wind</em> functions as both historical document and foundational literary myth. It is one of the very few sustained literary accounts of life in North Borneo during the 1930s — making it an irreplaceable archive of pre-war Sandakan society, its multicultural rhythms, its colonial hierarchies, and its astonishing natural world. Post-war, that world would be shattered. Agnes Keith would document that shattering too, in her harrowing follow-up <em>Three Came Home</em>. But it is <em>Land Below the Wind</em> that preserves the Eden before the fall.</p>
+      <p>Sabahan writers and readers return to this book not uncritically — its colonial lens requires honest reckoning — but with genuine affection for what it captured: a landscape of extraordinary beauty, a society of remarkable complexity, and a woman with the literary gifts to do justice to both.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p>To read Agnes Keith is to understand why literature matters to a place. Without her pen, much of pre-war Sandakan would exist only in administrative records. With it, the people and landscapes of Sabah live on — imperfect, luminous, unforgettable.</p>
+      <div class="attribution">— On her contribution to Sabah's literary heritage</div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">#AgnesKeith</span>
+      <span class="tag">&nbsp;#LandBelowTheWind</span>
+      <span class="tag">&nbsp;#SabahLiterature</span>
+      <span class="tag">&nbsp;#NorthBorneo</span>
+      <span class="tag">&nbsp;#SabahReads</span>
+      <span class="tag">&nbsp;#BorneoHeritage</span>
+      <span class="tag">&nbsp;#SabahHistory</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">Sabah Literary Appreciation</div>
+    <div class="footer-note">Celebrating the voices that shaped our land</div>
+  </div>
+</div>
+</body>
+</html>
