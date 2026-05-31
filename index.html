@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A literary appreciation of Agnes Newton Keith and her memoir 'Land Below the Wind,' exploring her contributions to Sabah's literary heritage and colonial-era writing.">
+<meta property="og:title" content="Agnes Keith – Land Below the Wind">
+<meta property="og:description" content="A celebration of Agnes Newton Keith's memoir and its significance to Sabah's literary history.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://github.com/SurenVynn/SLC_Agnes_Keith">
 <title>Agnes Keith – Land Below the Wind</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -10,7 +15,7 @@
     --ink: #1a1209;
     --parchment: #f5ede0;
     --amber: #b5722a;
-    --moss: #4a6741;
+    --moss: #5a7750;
     --gold: #c9922b;
     --mist: #d9cfc3;
     --deep: #2c1f10;
@@ -28,7 +33,7 @@
     font-family: 'Crimson Pro', Georgia, serif;
   }
 
-  .card {
+  article.card {
     background: var(--parchment);
     max-width: 680px;
     width: 100%;
@@ -38,15 +43,16 @@
   }
 
   /* Texture overlay */
-  .card::before {
+  article.card::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26, 18, 9, 0.03) 2px, rgba(26, 18, 9, 0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(26, 18, 9, 0.03) 2px, rgba(26, 18, 9, 0.03) 4px);
     pointer-events: none;
     z-index: 10;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   /* Header banner */
@@ -83,6 +89,10 @@
     margin-bottom: 14px;
   }
 
+  .page-label span[role="img"] {
+    margin-right: 6px;
+  }
+
   .title-block h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 42px;
@@ -102,6 +112,10 @@
     color: var(--mist);
     margin-top: 10px;
     font-style: italic;
+  }
+
+  .author-line time {
+    font-style: normal;
   }
 
   .meta-row {
@@ -137,6 +151,7 @@
   .divider-ornament {
     font-size: 18px;
     color: var(--amber);
+    aria-hidden: "true";
   }
 
   /* Body content */
@@ -155,7 +170,7 @@
     margin-bottom: 28px;
   }
 
-  .opening-quote span {
+  .opening-quote cite {
     display: block;
     font-size: 13px;
     font-style: normal;
@@ -175,7 +190,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--amber);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -216,6 +231,7 @@
     color: var(--gold);
     background: var(--deep);
     padding: 0 8px;
+    aria-hidden: "true";
   }
 
   .highlight-box p {
@@ -226,12 +242,12 @@
     color: var(--parchment);
   }
 
-  .highlight-box .attribution {
+  .highlight-box footer {
     font-family: 'Crimson Pro', serif;
     font-size: 13px;
     color: var(--gold);
     letter-spacing: 1px;
-    margin-top: 10px;
+    margin-top: 12px;
     font-style: normal;
   }
 
@@ -290,19 +306,21 @@
     .title-block h1 { font-size: 32px; }
     .body { padding: 20px 24px 32px; }
     .divider { padding: 18px 24px 0; }
-    .footer { padding: 16px 24px; flex-direction: column; gap: 6px; text-align: center; }
+    .footer { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
     .opening-quote { font-size: 18px; }
+    .section-title { margin-bottom: 12px; }
   }
 </style>
 </head>
 <body>
-<div class="card">
+<article class="card">
   <div class="corner corner-tl"></div>
   <div class="corner corner-br"></div>
 
   <!-- SVG botanical silhouette in header -->
-  <div class="header">
-    <svg class="botanical" viewBox="0 0 200 220" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <header class="header">
+    <svg class="botanical" viewBox="0 0 200 220" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <title>Botanical leaf silhouette decoration</title>
       <ellipse cx="100" cy="60" rx="18" ry="50" transform="rotate(-20 100 60)"/>
       <ellipse cx="80" cy="90" rx="14" ry="42" transform="rotate(-50 80 90)"/>
       <ellipse cx="120" cy="80" rx="14" ry="42" transform="rotate(10 120 80)"/>
@@ -311,87 +329,90 @@
       <line x1="100" y1="200" x2="100" y2="10" stroke="white" stroke-width="3"/>
       <line x1="100" y1="160" x2="60" y2="130" stroke="white" stroke-width="2"/>
       <line x1="100" y1="140" x2="140" y2="110" stroke="white" stroke-width="2"/>
-      <ellipse cx="100" cy="200" rx="30" ry="8" transform=""/>
+      <ellipse cx="100" cy="200" rx="30" ry="8"/>
     </svg>
 
-    <div class="page-label">📚 Literary Appreciation of Sabah</div>
+    <div class="page-label">
+      <span role="img" aria-label="book">📚</span>Literary Appreciation of Sabah
+    </div>
     <div class="title-block">
       <h1><em>Land Below the Wind</em></h1>
-      <div class="author-line">Agnes Newton Keith &nbsp;·&nbsp; 1939</div>
+      <div class="author-line">Agnes Newton Keith &nbsp;·&nbsp; <time datetime="1939">1939</time></div>
     </div>
     <div class="meta-row">
       <span class="badge">Memoir</span>
       <span class="badge">Colonial Literature</span>
       <span class="badge">North Borneo</span>
     </div>
-  </div>
+  </header>
 
   <div class="divider">
     <div class="divider-line"></div>
-    <div class="divider-ornament">✦</div>
+    <div class="divider-ornament" aria-hidden="true">✦</div>
     <div class="divider-line"></div>
   </div>
 
   <div class="body">
 
-    <div class="opening-quote">
+    <blockquote class="opening-quote">
       "Some people accumulate wisdom; Agnes Keith accumulated wonder — and gave it back to the world as literature."
-      <span>— A reader's note on the enduring power of this memoir</span>
-    </div>
+      <cite>— A reader's note on the enduring power of this memoir</cite>
+    </blockquote>
 
-    <div class="section">
-      <div class="section-title">The Book</div>
-      <p>Published in 1939, <em>Land Below the Wind</em> is the memoir of Agnes Newton Keith, an American journalist who arrived in Sandakan in 1934 as the wife of Harry Keith, the British Conservator of Forests for the North Borneo Chartered Company. What began as a dutiful accompaniment to a colonial posting became something far rarer: a work of literature that would shape how an entire land sees and names itself.</p>
-    </div>
+    <section class="section">
+      <h2 class="section-title">The Book</h2>
+      <p>Published in <time datetime="1939">1939</time>, <em>Land Below the Wind</em> is the memoir of Agnes Newton Keith, an American journalist who arrived in Sandakan in 1934 as the wife of Harry Keith, the British Conservator of Forests. What began as a personal diary became one of the most evocative accounts of colonial Borneo ever written. The book chronicles her eleven years in North Borneo — a period of discovery, adventure, and deepening intimacy with a landscape and people that would fundamentally shape her life and literary voice.</p>
+      <p>In an era when colonial literature was often produced by male administrators and military figures, Keith's perspective as a woman, an outsider, and an acute observer gave her work singular resonance. She was neither anthropologist nor novelist, yet her writing possessed the clarity of first and the imaginative depth of the second.</p>
+    </section>
 
-    <div class="section">
-      <div class="section-title">Voice &amp; Craft</div>
-      <p>What distinguishes Agnes Keith among colonial-era writers is the remarkable texture of her prose voice — warm, self-deprecating, and alive with curiosity. She writes not as conqueror or surveyor, but as a wide-eyed newcomer perpetually humbled by the jungle, the sea, and the people around her. Her wit is dry without being cold, her sentiment genuine without becoming sentimental.</p>
-      <p>The book blends genres with unusual fluency — part travelogue, part anthropological sketch, part domestic comedy, part nature writing. Her descriptions of Sabah's rainforests carry sensory precision that few travel writers of any era have matched: the smell of rain on red laterite soil, the chaos of the Sandakan market at dawn, the terrifying intimacy of the equatorial night.</p>
-    </div>
-
-    <div class="highlight-box">
-      <p>Agnes Keith did not merely observe Sabah — she listened to it. In her pages, Dusun elders, Bajau fishermen, and Chinese traders are rendered as full human beings, not ethnographic curiosities. That moral attention was radical for 1939.</p>
-      <div class="attribution">— On her representation of the peoples of North Borneo</div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Ambivalence &amp; Colonial Complexity</div>
-      <p>Academic scholars have noted that Keith occupies a fascinatingly ambivalent position — she is embedded within the colonial apparatus as an officer's wife, yet she does not simply reproduce its assumptions. In the story of Abanawas, a native Bornean narrated at a deliberate remove, Keith uses what literary scholars call a <em>narratorial shift</em> — distancing herself from the tale's colonial injustice even as she recounts it. This is the literary sleight-of-hand of a trained journalist who understood that indirection is sometimes the most honest path.</p>
-      <p>Her American identity further complicates the picture. She is neither fully inside the British imperial order nor fully outside it — a position that gives her an oblique, sometimes critical angle on Empire that a British writer might not have dared.</p>
-    </div>
-
-    <div class="section">
-      <div class="section-title">The Gift of a Name</div>
-      <p>"Land Below the Wind" was not a phrase Agnes Keith invented — it was borrowed from the old vocabulary of seafarers who used it to describe all territories lying south of the typhoon belt, sheltered from the great storms that ravaged lands to the north. But it was Agnes Keith who gave the phrase literary permanence, binding it irrevocably to Sabah. Today, Sabahans carry that name as identity, as tourism slogan, as self-understanding. A writer gave a land its name — and that name has endured longer than the empire that employed her husband.</p>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Legacy &amp; Influence on Sabah</div>
-      <p>For Sabah, <em>Land Below the Wind</em> functions as both historical document and foundational literary myth. It is one of the very few sustained literary accounts of life in North Borneo during the 1930s — making it an irreplaceable archive of pre-war Sandakan society, its multicultural rhythms, its colonial hierarchies, and its astonishing natural world. Post-war, that world would be shattered. Agnes Keith would document that shattering too, in her harrowing follow-up <em>Three Came Home</em>. But it is <em>Land Below the Wind</em> that preserves the Eden before the fall.</p>
-      <p>Sabahan writers and readers return to this book not uncritically — its colonial lens requires honest reckoning — but with genuine affection for what it captured: a landscape of extraordinary beauty, a society of remarkable complexity, and a woman with the literary gifts to do justice to both.</p>
-    </div>
+    <section class="section">
+      <h2 class="section-title">Voice &amp; Craft</h2>
+      <p>What distinguishes Agnes Keith among colonial-era writers is the remarkable texture of her prose voice — warm, self-deprecating, and alive with curiosity. She writes not as conqueror or surveyor of territory, but as an engaged participant in the daily life of a community. Her humor is gentle; her observations, unflinching. She can describe both the comedy of cultural misunderstanding and the tragedy of ecological transformation with equal grace.</p>
+      <p>The book blends genres with unusual fluency — part travelogue, part anthropological sketch, part domestic comedy, part nature writing. Her descriptions of Sabah's rainforests carry sensory precision that rivals the finest travel literature, while her portraits of individual Sabahans demonstrate a psychological acuity that grounds the memoir in human particularity rather than exotic abstraction.</p>
+    </section>
 
     <div class="highlight-box">
-      <p>To read Agnes Keith is to understand why literature matters to a place. Without her pen, much of pre-war Sandakan would exist only in administrative records. With it, the people and landscapes of Sabah live on — imperfect, luminous, unforgettable.</p>
-      <div class="attribution">— On her contribution to Sabah's literary heritage</div>
+      <p>Agnes Keith did not merely observe Sabah — she listened to it. In her pages, Dusun elders, Bajau fishermen, and Chinese traders are rendered as full human beings, not ethnographic curiosities. This remains her great gift to the literature of the region: she restored personhood to those whom colonial discourse had often flattened into types.</p>
+      <footer>— On her representation of the peoples of North Borneo</footer>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">Ambivalence &amp; Colonial Complexity</h2>
+      <p>Academic scholars have noted that Keith occupies a fascinatingly ambivalent position — she is embedded within the colonial apparatus as an officer's wife, yet she does not simply reproduce the ideological certainties of that system. She is often critical of colonial attitudes, especially regarding the treatment of indigenous peoples and the environmental consequences of resource extraction. Yet she is also shaped by the assumptions of her time and class; her vision is never revolutionary, only honest.</p>
+      <p>Her American identity further complicates the picture. She is neither fully inside the British imperial order nor fully outside it — a position that gives her an oblique, sometimes critical vantage point. This outsider perspective within the insider role generates much of the memoir's peculiar power and enduring relevance. She documents colonialism not from the center, but from its edges.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">The Gift of a Name</h2>
+      <p>"Land Below the Wind" was not a phrase Agnes Keith invented — it was borrowed from the old vocabulary of seafarers who used it to describe all territories lying south of the typhoon belt, sheltered from the violent storms that batter more northern latitudes. By choosing this name for her book, Keith performed an act of translation. She took a navigational term rooted in maritime commerce and conquest and transformed it into a poetic invocation of refuge, particularity, and human belonging. The title itself embodies her method: taking colonial language and inflecting it with sympathy, humor, and depth. The land below the wind becomes not merely a strategic location but a world of feeling.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Legacy &amp; Influence on Sabah</h2>
+      <p>For Sabah, <em>Land Below the Wind</em> functions as both historical document and foundational literary myth. It is one of the very few sustained literary accounts of life in North Borneo during the pre-war colonial period, and for many Sabahans, it remains the primary text through which outsiders encounter the region's history. This places a certain weight on the book — it must bear witness to a vanished world.</p>
+      <p>Sabahan writers and readers return to this book not uncritically — its colonial lens requires honest reckoning — but with genuine affection for what it captured: a landscape of extraordinary beauty, a complex society in transition, and the life of one remarkably perceptive woman trying to make sense of her place in it all. The book endures because it combines historical significance with literary artistry, making it essential reading for anyone seeking to understand Sabah's literary and cultural inheritance.</p>
+    </section>
+
+    <div class="highlight-box">
+      <p>To read Agnes Keith is to understand why literature matters to a place. Without her pen, much of pre-war Sandakan would exist only in administrative records — bureaucratic, efficient, lifeless. With it, the people and landscape live. They breathe. They speak. This is the immortality that literature offers, and this is what Keith gave to Sabah.</p>
+      <footer>— On her contribution to Sabah's literary heritage</footer>
     </div>
 
     <div class="tags">
       <span class="tag">#AgnesKeith</span>
-      <span class="tag">&nbsp;#LandBelowTheWind</span>
-      <span class="tag">&nbsp;#SabahLiterature</span>
-      <span class="tag">&nbsp;#NorthBorneo</span>
-      <span class="tag">&nbsp;#SabahReads</span>
-      <span class="tag">&nbsp;#BorneoHeritage</span>
-      <span class="tag">&nbsp;#SabahHistory</span>
+      <span class="tag">#LandBelowTheWind</span>
+      <span class="tag">#SabahLiterature</span>
+      <span class="tag">#NorthBorneo</span>
+      <span class="tag">#SabahReads</span>
+      <span class="tag">#BorneoHeritage</span>
+      <span class="tag">#SabahHistory</span>
     </div>
   </div>
 
-  <div class="footer">
+  <footer class="footer">
     <div class="footer-brand">Sabah Literary Appreciation</div>
     <div class="footer-note">Celebrating the voices that shaped our land</div>
-  </div>
-</div>
+  </footer>
+</article>
 </body>
 </html>
